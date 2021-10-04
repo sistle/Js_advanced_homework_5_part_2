@@ -5,11 +5,13 @@ async function response() {
 	await fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
 		.then(data => data.json())
 		.then(data => bankCurrency = data)
-		.then(() => print())
+		// .then(() => print())
+		.catch(err => console.log(err));
+
+	await print();
 };
 
 function print() {
-
 	let div = ''
 	const exchanche = 10000;
 
@@ -22,7 +24,8 @@ function print() {
 
 	html.innerHTML = div;
 };
-response();
+response()
+
 // async function execute() {
 // 	await response();
 //    await print();
